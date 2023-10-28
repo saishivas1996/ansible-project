@@ -1,0 +1,16 @@
+---
+- name: Install package
+  hosts: app1
+  tasks:
+    - name: Install
+      package:
+        name: vim
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    -  name: 'Execute a script on all web server nodes'
+       hosts: all
+       become: yes
+       tasks:
+         -  service: 'name=nginx state=started'
+            when: 'ansible_host=="node02"

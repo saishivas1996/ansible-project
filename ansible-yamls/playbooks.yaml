@@ -1,0 +1,23 @@
+---
+- hosts: web
+  tasks: 
+  - name: creating jenkins users
+    group:
+      name: jenkins
+      state: jenkins
+
+    user:
+      name: jenkins
+      state: present
+      uid: 1040
+      shell: /var/lib/jenkins
+      groups: jenkins
+    
+  - name: adding jenkins defaults
+    command: 
+    args:
+
+  - name: downloading jenkins key
+    url: wget -O 
+
+    

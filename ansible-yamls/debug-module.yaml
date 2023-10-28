@@ -1,0 +1,9 @@
+---
+- name: check /ec/hosts file
+  hosts: all
+  tasks:
+  - shell: cat /etc/hposts
+    register: result
+
+  - debug:
+      var: result.rc 
