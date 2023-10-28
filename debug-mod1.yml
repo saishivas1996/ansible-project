@@ -1,0 +1,8 @@
+---
+#ansible-playbook playbook.yml -v will print result in console"
+- name: check /ec/hosts file
+  hosts: all
+  tasks:
+  - shell: cat /etc/hosts
+    register: result
+ 

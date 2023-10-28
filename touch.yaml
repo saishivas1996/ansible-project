@@ -1,0 +1,11 @@
+---
+- hosts: web
+  tasks:
+  - name: create a file
+    file:
+      path: /root/ansible/config.sh
+      state: touch
+      owner: root
+      group: root
+      mode: 644
+    

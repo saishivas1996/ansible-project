@@ -1,0 +1,8 @@
+---
+- hosts: web
+  tasks:
+  - name: changing line inf index.html
+    lineinfile:
+      path: /root/ansible/index.html
+      regexp: 'Jyothsna*'
+      line: 'Jyothsna is my darling'

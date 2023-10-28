@@ -1,0 +1,7 @@
+---
+- name: build jenkins master
+  hosts: db
+  become: true
+  gather_facts: yes
+  roles:
+    - /root/ansible/practice/roles

@@ -1,0 +1,36 @@
+---
+- name: configure jenkins yum repository
+  get_url:
+    url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    dest: /etc.yum.repos.d/jenkins.repo
+  
+- name: confirue jenkins key
+  command: wget https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+- name: import rpm key
+  rpm_key: "state=present key=https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key"
+
+
+- name: Ensure Jenkins and java-devel package installed
+  yum:
+    name: '{{ packages }}'
+    state: present
+    update_cache: true
+  vars:
+    packages:
+      - jenkins
+      - java-devel
+- name: Ensure systemd daemon reloaded
+  command: systemctl daemon-reload
+    
+- name: Ensure Jenkins service is enabled and started
+  service:
+    name: jenkins
+    state: started 
+
+- name: confogure jenkins
+  user: 
+    name: "{{ jenkins_master_user }}"
+    comment: "jekins"
+    home: /var/lib/jenkins
+    uid: "{{ jenkins_master_user_uid }}"

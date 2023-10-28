@@ -1,0 +1,13 @@
+---
+- name: firewall passing variables from file
+  hosts: web
+  tasks: 
+    - firewalld:
+        service: https
+        permanent: true
+        state: enabled
+    
+    - firewalld:
+        port: "{{ http_port }}"
+        permanent: true
+        state: disabled

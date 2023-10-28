@@ -1,0 +1,11 @@
+---
+- name: create directory
+  hosts: web
+  tasks: 
+    - name: create directory
+      file:
+        path: /root/ansible
+        owner: root
+        group: root
+        state: directory
+      

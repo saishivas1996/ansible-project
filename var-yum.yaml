@@ -1,0 +1,13 @@
+---
+- hosts: web
+  vars: 
+    list:
+      - httpd
+      - nginx
+      - redis
+  tasks:
+  - name: installing ackages
+    yum:
+      name: '{{ list }}'
+      state: present
+

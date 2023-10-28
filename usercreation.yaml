@@ -1,0 +1,13 @@
+---
+- hosts: web
+  tasks:
+    - name: creating group
+      group:
+        name: jenkins
+        state: present
+    - name: creating user
+      user:
+        name: jenkins
+        state: present
+        groups: jenkins
+

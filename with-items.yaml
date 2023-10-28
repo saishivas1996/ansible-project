@@ -1,0 +1,12 @@
+---
+- name: learning with_items
+  hosts: db
+  tasks:
+  - name: yum installation of packages
+    yum:
+      name: '{{ item }}'
+      state: present
+    with_items:
+      - httpd
+      - nginx
+      - redis

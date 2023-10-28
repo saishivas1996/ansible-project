@@ -1,0 +1,7 @@
+---
+- name: print dns server
+  hosts: db
+  tasks:
+  - debug:
+      #msg: '{{ dns_server }}'
+      var: ansible_facts

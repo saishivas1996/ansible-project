@@ -1,0 +1,10 @@
+---
+- hosts: web
+  tasks:
+  - name: copy
+    copy:
+      src: /root/ansible/index.html
+      dest: /root/ansible/index.html
+      owner: root
+      group: root
+    

@@ -1,0 +1,17 @@
+#handlers example
+---
+- name: 'handlers example'
+  hosts: web
+  tasks:
+    - name: 'copying file name'
+      copy:
+        src: 
+        dest:
+      notify: restart application server
+    
+  handlers:
+    - name: restart application server
+      service:
+        name: application_service
+        state: restarted
+      

@@ -1,0 +1,7 @@
+---
+
+jenkins_master_package_version: 2.414.1-1.1
+jenkins_master_user: jenkinssvc
+jenkins_master_user_uid: 1050
+swap_file_path: /swapfile
+swap_file_size_kb: 5
